@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<select id="countries">
+		<option value="Ukraine"> Ненька </option>
+		<option value="USA"> Буржуї </option>
+		<option value="Germany"> Фашисти </option>
+	</select>
+
+	<select id="cities"></select>
+
+	<div id="selection"></div>
+	<script>
+		const cities = [
+			{ name: 'Ivano-Frankivsk', country: 'Ukraine' },
+			{ name: 'Kyiv', country: 'Ukraine' },
+			{ name: 'Lviv', country: 'Ukraine' },
+			{ name: 'Ternopil', country: 'Ukraine' },
+			{ name: 'Washington', country: 'USA' },
+			{ name: 'New-York', country: 'USA' },
+			{ name: 'Denver', country: 'USA' },
+			{ name: 'California', country: 'USA' },
+			{ name: 'Detroit', country: 'USA' },
+			{ name: 'Cherkasy', country: 'Ukraine' },
+			{ name: 'Bila-Tserkva', country: 'Ukraine' },
+			{ name: 'Berlin', country: 'Germany' },
+			{ name: 'Munich', country: 'Germany' },
+		];
+
+		const countrySelect = document.querySelector('#countries');
+		const citiesSelect = document.querySelector('#cities');
+		const selection = document.querySelector('#selection');
+		let country = '';
+		let city = '';
+
+		countrySelect.addEventListener('change', (event) => {
+			country = event.target.value;
+
+			const options = cities.filter((item) => { return item.country === country; }).map(option => option.name);
+			citiesSelect.innerHTML = '';
+			options.forEach(option => {
+				const elem = document.createElement('option');
+				elem.setAttribute('value', option);
+				elem.innerHTML = option;
+
+				citiesSelect.append(elem);
+			});
+
+			city = citiesSelect.value;
+			selection.innerHTML = `country: ${country}, city: ${city}`;
+		});
+
+		citiesSelect.addEventListener('change', (event) => {
+			city = event.target.value;
+
+			selection.innerHTML = `country: ${country}, city: ${city}`;
+		})		
+	</script>
+</body>
+
+</html>

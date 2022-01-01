@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<p id='text'>I learning JavaScript events!</p>
+	<div>
+		<button id="change-style-button">Change style!</button>
+	</div>
+
+	<script>
+		const p = document.getElementById('text');
+		const btn = document.getElementById('change-style-button');
+		btn.addEventListener('click', changeCSS);
+
+		function changeCSS() {
+			p.setAttribute('style', 'color: orange; font-size: 20px; font-family: Comic Sans MS')
+		}
+
+	</script>
+</body>
+
+</html>

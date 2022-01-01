@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		const btn = document.createElement('button');
+		btn.innerHTML = 'start';
+		btn.addEventListener('click', doMagic);
+		document.body.append(btn);
+
+
+		function doMagic() {
+			const win = window.open(location.href, '', "height=200,width=200");
+
+			setTimeout(() => {
+				win.resizeTo(500, 500);
+
+				setTimeout(() => {
+					win.moveTo(200, 200);
+
+					setTimeout(() => {
+						win.close();
+					}, 2000);
+				}, 2000)
+			}, 2000);
+		}
+
+
+
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<button id="first"> click me </button>
+	<button id="second"> double click me </button>
+	<button id="third"> hold me </button>
+	<a id="link"> Hover over me </a>
+	<script>
+		const first = document.querySelector('#first');
+		const second = document.querySelector('#second');
+		const third = document.querySelector('#third');
+		const link = document.querySelector('#link');
+
+		first.addEventListener('click', () => {
+			document.body.setAttribute('style', 'background-color: blue');
+		});
+
+		second.addEventListener('dblclick', () => {
+			document.body.setAttribute('style', 'background-color: pink');
+		});
+
+		third.addEventListener('mousedown', () => {
+			document.body.setAttribute('style', 'background-color: brown');
+		});
+		third.addEventListener('mouseup', () => {
+			document.body.setAttribute('style', 'background-color: white');
+		});
+
+		link.addEventListener('mouseover', () => {
+			document.body.setAttribute('style', 'background-color: yellow');
+		});
+		link.addEventListener('mouseout', () => {
+			document.body.setAttribute('style', 'background-color: white');
+		})
+
+	</script>
+</body>
+
+</html>
